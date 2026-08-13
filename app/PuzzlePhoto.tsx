@@ -1,11 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Download } from "lucide-react";
-
 export default function PuzzlePhoto() {
-  const [revealed, setRevealed] = useState(false);
-  const handleReveal = () => setRevealed(true);
+  const handleReveal = () => {
+    window.history.replaceState({}, "", "/?EXIF=on");
+  };
 
   const imageUrl = "/observation-photo.jpg";
 
@@ -21,15 +19,6 @@ export default function PuzzlePhoto() {
         onFocus={handleReveal}
         onClick={handleReveal}
       />
-
-      <a
-        className={`download-link ${revealed ? "is-visible" : ""}`}
-        href={imageUrl}
-        download
-        aria-label="Download original photo"
-      >
-        <Download size={16} strokeWidth={2.25} aria-hidden="true" />
-      </a>
     </section>
   );
 }

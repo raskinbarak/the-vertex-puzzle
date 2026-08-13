@@ -42,30 +42,6 @@ body {
   display: block;
 }
 
-.download-link {
-  position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  display: grid;
-  place-items: center;
-  width: 2.2rem;
-  height: 2.2rem;
-  color: var(--text);
-  text-decoration: none;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: rgba(15, 19, 24, 0.85);
-  font-size: 1.2rem;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 120ms ease;
-}
-
-.download-link.is-visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-
 .peak-hitbox {
   position: absolute;
   top: 19%;
