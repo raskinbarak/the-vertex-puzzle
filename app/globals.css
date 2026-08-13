@@ -1,0 +1,79 @@
+:root {
+  --bg: #0f1318;
+  --bg-soft: #171d24;
+  --line: #2b3746;
+  --text: #dce7f3;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  color: var(--text);
+  background: radial-gradient(circle at 20% 0%, #1c2531 0%, var(--bg) 50%),
+    linear-gradient(var(--bg), var(--bg-soft));
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+}
+
+.puzzle-shell {
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  padding: 2.25rem 0 3rem;
+}
+
+.photo-stage {
+  position: relative;
+}
+
+.puzzle-photo {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: block;
+}
+
+.download-link {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(15, 19, 24, 0.85);
+  font-size: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 120ms ease;
+}
+
+.download-link.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.peak-hitbox {
+  position: absolute;
+  top: 19%;
+  left: 45%;
+  width: 12%;
+  height: 13%;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: default;
+}
