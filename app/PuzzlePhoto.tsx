@@ -2,10 +2,10 @@
 
 export default function PuzzlePhoto() {
   const handleReveal = () => {
-    window.history.replaceState({}, "", "/?EXIF=on");
+    window.history.replaceState({}, "", "/?EXIF");
   };
 
-  const imageUrl = "/observation-photo.jpg";
+  const imageUrl = "/mountain.jpg";
 
   return (
     <section className="photo-stage" aria-label="Puzzle photograph">

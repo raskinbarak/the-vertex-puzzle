@@ -20,7 +20,7 @@ Open http://localhost:3000.
 
 ## Project Shape
 
-- `app/page.tsx`: Entry page and `EXIF=on` query guard
+- `app/page.tsx`: Entry page and `EXIF` query guard
 - `app/PuzzlePhoto.tsx`: First puzzle photograph and reveal/download interaction
 - `app/layout.tsx`: Root layout and metadata
 - `app/globals.css`: Minimal responsive styling
