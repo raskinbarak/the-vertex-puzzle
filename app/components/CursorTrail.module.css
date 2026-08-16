@@ -1,0 +1,41 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.dot {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  pointer-events: none;
+  box-shadow: 0 0 10px rgba(120, 212, 255, 0.75), 0 0 24px rgba(88, 168, 255, 0.5);
+}
+
+.spark {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(169, 236, 255, 0.95) 30%, rgba(70, 166, 255, 0.66) 58%, rgba(70, 166, 255, 0) 100%);
+  box-shadow: 0 0 16px rgba(164, 233, 255, 0.95), 0 0 34px rgba(93, 176, 255, 0.72);
+  transform: translate(-50%, -50%);
+  animation: spark-burst 900ms ease-out forwards;
+}
+
+@keyframes spark-burst {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--spark-x)), calc(-50% + var(--spark-y))) scale(0.3);
+  }
+}

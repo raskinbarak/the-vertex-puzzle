@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import CursorTrail from "./components/CursorTrail";
 
 export const metadata: Metadata = {
   title: "The Vertex Puzzle",
@@ -9,7 +10,10 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <CursorTrail />
+        {children}
+      </body>
     </html>
   );
 }

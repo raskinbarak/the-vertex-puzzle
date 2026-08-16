@@ -1,0 +1,23 @@
+.photoStage {
+  position: relative;
+}
+
+.puzzlePhoto {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  display: block;
+}
+
+.peakHitbox {
+  position: absolute;
+  top: 19%;
+  left: 45%;
+  width: 12%;
+  height: 13%;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: default;
+}
