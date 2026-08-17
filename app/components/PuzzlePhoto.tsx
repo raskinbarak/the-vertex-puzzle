@@ -4,8 +4,8 @@ import type { FocusEvent, MouseEvent } from "react";
 import { PEAK_HINT_EVENT } from "../constants";
 import styles from "./PuzzlePhoto.module.css";
 
-const EXIF_QUERY_KEY = "EXIF";
-const COMMENT_QUERY_KEY = "Comment";
+const JIMPL_QUERY_KEY = "jimpl";
+const USER_COMMENT_QUERY_KEY = "UserComment";
 
 export default function PuzzlePhoto() {
   const revealWithSpark = (x: number, y: number, width = 0, height = 0) => {
@@ -15,12 +15,12 @@ export default function PuzzlePhoto() {
       new CustomEvent(PEAK_HINT_EVENT, { detail: { x, y, width, height } }),
     );
 
-    if (!params.has(EXIF_QUERY_KEY) && !params.has(COMMENT_QUERY_KEY)) {
-      window.history.replaceState({}, "", `/?${EXIF_QUERY_KEY}`);
-    } else if (params.has(EXIF_QUERY_KEY)) {
-      window.history.replaceState({}, "", `/?${COMMENT_QUERY_KEY}`);
-    } else if (params.has(COMMENT_QUERY_KEY)) {
-      window.history.replaceState({}, "", `/?${EXIF_QUERY_KEY}`);
+    if (!params.has(JIMPL_QUERY_KEY) && !params.has(USER_COMMENT_QUERY_KEY)) {
+      window.history.replaceState({}, "", `/?${JIMPL_QUERY_KEY}`);
+    } else if (params.has(JIMPL_QUERY_KEY)) {
+      window.history.replaceState({}, "", `/?${USER_COMMENT_QUERY_KEY}`);
+    } else if (params.has(USER_COMMENT_QUERY_KEY)) {
+      window.history.replaceState({}, "", `/?${JIMPL_QUERY_KEY}`);
     }
   };
 
