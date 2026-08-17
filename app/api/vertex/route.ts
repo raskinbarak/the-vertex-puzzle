@@ -1,8 +1,11 @@
+import { BASE_URL } from "../../config";
+
 const TEXT_RESPONSE_HEADERS = {
   "Content-Type": "text/plain; charset=utf-8",
 };
 
-const ELEMENTS_ROUTE = "/elements";
+const ELEMENTS_ROUTE = `${BASE_URL}/elements`;
+
 const CLUES: Record<string, string[]> = {
   get: [
     `Problem: You tried to GET me and it did not work.`,

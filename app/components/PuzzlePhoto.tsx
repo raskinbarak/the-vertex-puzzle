@@ -1,17 +1,18 @@
 "use client";
 
 import type { FocusEvent, MouseEvent } from "react";
+import { PEAK_HINT_EVENT } from "../constants";
 import styles from "./PuzzlePhoto.module.css";
 
 const EXIF_QUERY_KEY = "EXIF";
 const COMMENT_QUERY_KEY = "Comment";
 
 export default function PuzzlePhoto() {
-  const revealWithSpark = (x: number, y: number) => {
+  const revealWithSpark = (x: number, y: number, width = 0, height = 0) => {
     const params = new URLSearchParams(window.location.search);
 
     window.dispatchEvent(
-      new CustomEvent("vertex:peak-hint", { detail: { x, y } }),
+      new CustomEvent(PEAK_HINT_EVENT, { detail: { x, y, width, height } }),
     );
 
     if (!params.has(EXIF_QUERY_KEY) && !params.has(COMMENT_QUERY_KEY)) {
@@ -29,7 +30,12 @@ export default function PuzzlePhoto() {
 
   const handleFocus = (event: FocusEvent<HTMLButtonElement>) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    revealWithSpark(rect.left + rect.width / 2, rect.top + rect.height / 2);
+    revealWithSpark(
+      rect.left + rect.width / 2,
+      rect.top + rect.height / 2,
+      rect.width,
+      rect.height,
+    );
   };
 
   const handleClick = (event: MouseEvent<HTMLButtonElement>) => {

@@ -1,6 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import {
+  ANIMATION_END_EVENT,
+  PEAK_HINT_EVENT,
+  POINTER_MOVE_EVENT,
+} from "../constants";
 import styles from "./CursorTrail.module.css";
 
 const DOTS = 8;
@@ -37,15 +42,32 @@ export default function CursorTrail() {
         spark.style.setProperty("--spark-y", `${Math.sin(angle) * distance}px`);
 
         layer.appendChild(spark);
-        spark.addEventListener("animationend", () => spark.remove(), { once: true });
+        spark.addEventListener(ANIMATION_END_EVENT, () => spark.remove(), {
+          once: true,
+        });
       }
     };
 
     const peakHint = (event: Event) => {
-      const detail = (event as CustomEvent<{ x?: number; y?: number }>).detail;
-      emitSparkBurst(detail?.x ?? x, detail?.y ?? y);
+      const detail = (event as CustomEvent<{
+        x?: number;
+        y?: number;
+        width?: number;
+        height?: number;
+      }>).detail;
+      const burstX = detail?.x ?? x;
+      const burstY = detail?.y ?? y;
+      const burstWidth = detail?.width ?? 0;
+      const burstHeight = detail?.height ?? 0;
+      const randomPoint = () => ({
+        x: burstX + (Math.random() - 0.5) * burstWidth,
+        y: burstY + (Math.random() - 0.5) * burstHeight,
+      });
+      const firstPoint = randomPoint();
+      emitSparkBurst(firstPoint.x, firstPoint.y);
       window.setTimeout(() => {
-        emitSparkBurst(detail?.x ?? x, detail?.y ?? y);
+        const secondPoint = randomPoint();
+        emitSparkBurst(secondPoint.x, secondPoint.y);
       }, 95);
     };
 
@@ -67,13 +89,13 @@ export default function CursorTrail() {
       rafId = window.requestAnimationFrame(frame);
     };
 
-    window.addEventListener("pointermove", move, { passive: true });
-    window.addEventListener("vertex:peak-hint", peakHint);
+    window.addEventListener(POINTER_MOVE_EVENT, move, { passive: true });
+    window.addEventListener(PEAK_HINT_EVENT, peakHint);
     frame();
 
     return () => {
-      window.removeEventListener("pointermove", move);
-      window.removeEventListener("vertex:peak-hint", peakHint);
+      window.removeEventListener(POINTER_MOVE_EVENT, move);
+      window.removeEventListener(PEAK_HINT_EVENT, peakHint);
       window.cancelAnimationFrame(rafId);
     };
   }, []);
