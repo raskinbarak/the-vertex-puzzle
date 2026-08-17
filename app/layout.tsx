@@ -4,8 +4,8 @@ import "./globals.css";
 import CursorTrail from "./components/CursorTrail";
 
 export const metadata: Metadata = {
-  title: "The Vertex Puzzle",
-  description: "A computer-science digital escape room.",
+  title: "the-vertex-puzzle",
+  description: "A computer-science digital escape room",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
