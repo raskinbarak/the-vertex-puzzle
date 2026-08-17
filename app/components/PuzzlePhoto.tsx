@@ -4,14 +4,23 @@ import type { FocusEvent, MouseEvent } from "react";
 import styles from "./PuzzlePhoto.module.css";
 
 const EXIF_QUERY_KEY = "EXIF";
+const COMMENT_QUERY_KEY = "Comment";
 
 export default function PuzzlePhoto() {
   const revealWithSpark = (x: number, y: number) => {
     const params = new URLSearchParams(window.location.search);
-    if (params.has(EXIF_QUERY_KEY)) return;
 
-    window.dispatchEvent(new CustomEvent("vertex:peak-hint", { detail: { x, y } }));
-    window.history.replaceState({}, "", `/?${EXIF_QUERY_KEY}`);
+    window.dispatchEvent(
+      new CustomEvent("vertex:peak-hint", { detail: { x, y } }),
+    );
+
+    if (!params.has(EXIF_QUERY_KEY) && !params.has(COMMENT_QUERY_KEY)) {
+      window.history.replaceState({}, "", `/?${EXIF_QUERY_KEY}`);
+    } else if (params.has(EXIF_QUERY_KEY)) {
+      window.history.replaceState({}, "", `/?${COMMENT_QUERY_KEY}`);
+    } else if (params.has(COMMENT_QUERY_KEY)) {
+      window.history.replaceState({}, "", `/?${EXIF_QUERY_KEY}`);
+    }
   };
 
   const handleMouseEnter = (event: MouseEvent<HTMLButtonElement>) => {
