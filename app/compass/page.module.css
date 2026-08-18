@@ -1,0 +1,19 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 100svh;
+  padding: 2rem 1rem;
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  letter-spacing: 0.08em;
+}
+
+.subtitle {
+  color: #91a4b8;
+  font-size: 0.875rem;
+}

@@ -1,0 +1,104 @@
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100svh;
+  padding: 2rem 1rem;
+}
+
+.card {
+  position: relative;
+  width: min(380px, 92vw);
+  padding: 1.75rem;
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
+  font-family: "Cascadia Code", Consolas, "Courier New", monospace;
+}
+
+.title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+.subtitle {
+  margin-bottom: 1.5rem;
+  color: #6f8296;
+  font-size: 0.75rem;
+}
+
+.field {
+  display: block;
+  margin-bottom: 0.375rem;
+  color: #91a4b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--line);
+  background: #0d1116;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.875rem;
+}
+
+.input:focus-visible {
+  outline: 1px solid #4ea8ff;
+}
+
+.button {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--line);
+  background: #1f2833;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #26313e;
+}
+
+.status {
+  margin-top: 0.875rem;
+  font-size: 0.8125rem;
+  min-height: 1.25rem;
+}
+
+.error {
+  color: #e06c75;
+}
+
+.success {
+  color: #8fd9ff;
+}
+
+.note {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.75rem;
+  width: 11rem;
+  padding: 0.75rem;
+  background: #f5e07a;
+  color: #3a3110;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.75rem;
+  line-height: 1.35;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
+  transform: rotate(-3deg);
+}
+
+@media (max-width: 480px) {
+  .note {
+    position: static;
+    width: auto;
+    margin-bottom: 1.25rem;
+  }
+}
