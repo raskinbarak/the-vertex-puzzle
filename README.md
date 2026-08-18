@@ -11,3 +11,5 @@ You followed the clues, investigated the system, and made your way all the way h
 Stay curious.
 
 ![A golden trophy](public/trophy.png)
+
+P.S. You are more than welcome to look around the repository and see how the game was built.
