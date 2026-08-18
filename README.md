@@ -12,4 +12,4 @@ Stay curious.
 
 ![A golden trophy](public/trophy.png)
 
-P.S. You are more than welcome to look around the repository and see how the game was built.
+P.S. You are more than welcome to look around the repository and see how the game was built :)
