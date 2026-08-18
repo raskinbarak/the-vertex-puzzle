@@ -53,13 +53,44 @@
 
 .needle {
   position: absolute;
-  bottom: 50%;
+  top: 50%;
   left: 50%;
-  width: 2px;
+  width: 0;
+  height: 0;
+  transform-origin: center;
+}
+
+.needleNorth,
+.needleSouth {
+  position: absolute;
+  left: 50%;
+  width: 0.55rem;
   height: 38%;
-  margin-left: -1px;
-  background: linear-gradient(#e2e8f0, #5c7a99);
-  transform-origin: bottom center;
+  margin-left: -0.275rem;
+  clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+}
+
+.needleNorth {
+  bottom: 0;
+  background: #c0392b;
+}
+
+.needleSouth {
+  top: 0;
+  background: #d8e2ec;
+  transform: rotate(180deg);
+}
+
+.pivot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  margin: -0.3rem 0 0 -0.3rem;
+  border-radius: 50%;
+  background: #91a4b8;
+  box-shadow: 0 0 0 2px #0d1620;
 }
 
 .burst {

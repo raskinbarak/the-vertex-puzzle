@@ -86,7 +86,11 @@ export default function CompassPage() {
         <span className={styles.tick} data-dir="E">E</span>
         <span className={styles.tick} data-dir="S">S</span>
         <span className={styles.tick} data-dir="W">W</span>
-        <div className={styles.needle} style={{ transform: `rotate(${angleDeg}deg)` }} />
+        <div className={styles.needle} style={{ transform: `rotate(${angleDeg}deg)` }}>
+          <span className={styles.needleNorth} />
+          <span className={styles.needleSouth} />
+        </div>
+        <span className={styles.pivot} />
         {matched && <span key={burstId} className={styles.burst} />}
       </div>
 
