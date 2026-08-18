@@ -65,7 +65,7 @@
   position: absolute;
   left: 50%;
   width: 0.55rem;
-  height: 38%;
+  height: clamp(3.4rem, 8.4vw, 4.5rem);
   margin-left: -0.275rem;
   clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
 }
