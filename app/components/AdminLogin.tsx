@@ -11,7 +11,10 @@ const DEBUG_AUTH_SOURCE = `const AUTH_COOKIE_NAME = "authenticated";
 function checkAuth(password) {
   const isValid = password === process.env.ADMIN_PASSWORD;
 
-  document.cookie = \`\${AUTH_COOKIE_NAME}=\${isValid}; path=/; SameSite=Lax\`;
+  if (isValid) {
+    document.cookie = AUTH_COOKIE_NAME + "=" + isValid + "; path=/";
+  }
+
   return isValid;
 }`;
 
