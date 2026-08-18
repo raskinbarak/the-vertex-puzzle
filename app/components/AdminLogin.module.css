@@ -100,8 +100,15 @@
 
 .note:hover,
 .note:active {
-  z-index: 2;
-  transform: translateX(0) rotate(-3deg);
+  transform: translateX(calc(100% - 0.25rem)) rotate(-3deg);
+}
+
+@media (max-width: 640px) {
+  .note:hover,
+  .note:active {
+    z-index: 2;
+    transform: translateX(0) rotate(-3deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

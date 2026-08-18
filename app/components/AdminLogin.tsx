@@ -6,7 +6,6 @@ import styles from "./AdminLogin.module.css";
 
 const REDIRECT_DELAY_MS = 1600;
 
-// Puzzle bait: printed to the console on every attempt, never executed.
 const DEBUG_AUTH_SOURCE = `function checkAuth(pass) {
   if (pass = expectedPass) {
     document.cookie = "authenticated=true";
