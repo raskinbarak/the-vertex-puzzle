@@ -6,12 +6,13 @@ import styles from "./AdminLogin.module.css";
 
 const REDIRECT_DELAY_MS = 1600;
 
-const DEBUG_AUTH_SOURCE = `function checkAuth(pass) {
-  if (pass = expectedPass) {
-    document.cookie = "authenticated=true";
-    return true;
-  }
-  return false;
+const DEBUG_AUTH_SOURCE = `const AUTH_COOKIE_NAME = "authenticated";
+
+function checkAuth(password) {
+  const isValid = password === process.env.ADMIN_PASSWORD;
+
+  document.cookie = \`\${AUTH_COOKIE_NAME}=\${isValid}; path=/; SameSite=Lax\`;
+  return isValid;
 }`;
 
 export default function AdminLogin() {
