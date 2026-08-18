@@ -6,9 +6,14 @@
   padding: 2rem 1rem;
 }
 
-.card {
+.shell {
   position: relative;
   width: min(380px, 92vw);
+}
+
+.card {
+  position: relative;
+  z-index: 1;
   padding: 1.75rem;
   border: 1px solid var(--line);
   background: var(--bg-soft);
@@ -16,15 +21,10 @@
 }
 
 .title {
+  margin-bottom: 1.5rem;
   font-size: 1.125rem;
   font-weight: 600;
   letter-spacing: 0.04em;
-}
-
-.subtitle {
-  margin-bottom: 1.5rem;
-  color: #6f8296;
-  font-size: 0.75rem;
 }
 
 .field {
@@ -80,10 +80,12 @@
   color: #8fd9ff;
 }
 
+/* Sits behind the card; only a sliver peeks out until hovered. */
 .note {
   position: absolute;
-  top: -1.5rem;
-  right: -1.75rem;
+  top: 2.5rem;
+  right: 0;
+  z-index: 0;
   width: 11rem;
   padding: 0.75rem;
   background: #f5e07a;
@@ -92,13 +94,18 @@
   font-size: 0.75rem;
   line-height: 1.35;
   box-shadow: 0 6px 14px rgba(0, 0, 0, 0.45);
-  transform: rotate(-3deg);
+  transform: translateX(1.25rem) rotate(-3deg);
+  transition: transform 250ms ease;
 }
 
-@media (max-width: 480px) {
+.note:hover,
+.note:active {
+  z-index: 2;
+  transform: translateX(0) rotate(-3deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
   .note {
-    position: static;
-    width: auto;
-    margin-bottom: 1.25rem;
+    transition: none;
   }
 }

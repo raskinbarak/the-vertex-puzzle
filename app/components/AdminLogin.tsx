@@ -46,27 +46,28 @@ export default function AdminLogin() {
 
   return (
     <main className={styles.page}>
-      <div className={styles.card}>
-        <p className={styles.note}>I really should have removed the debug logs before production.</p>
+      <div className={styles.shell}>
+        <p className={styles.note}>Note to self: don&apos;t forget to remove the debug logs before production.</p>
 
-        <h1 className={styles.title}>Admin Login</h1>
-        <p className={styles.subtitle}>internal build - do not deploy</p>
+        <div className={styles.card}>
+          <h1 className={styles.title}>Admin Login</h1>
 
-        <form onSubmit={attemptLogin}>
-          <label className={styles.field} htmlFor="password">
-            Password
-          </label>
-          <input className={styles.input} id="password" name="password" type="password" autoComplete="off" />
+          <form onSubmit={attemptLogin}>
+            <label className={styles.field} htmlFor="password">
+              Password
+            </label>
+            <input className={styles.input} id="password" name="password" type="password" autoComplete="off" />
 
-          <button className={styles.button} type="submit">
-            Login
-          </button>
-        </form>
+            <button className={styles.button} type="submit">
+              Login
+            </button>
+          </form>
 
-        <p className={styles.status} role="status" aria-live="polite">
-          {granted && <span className={styles.success}>200 OK - access granted</span>}
-          {denied && <span className={styles.error}>Error: not authenticated</span>}
-        </p>
+          <p className={styles.status} role="status" aria-live="polite">
+            {granted && <span className={styles.success}>200 OK - access granted</span>}
+            {denied && <span className={styles.error}>Incorrect password. Please try again.</span>}
+          </p>
+        </div>
       </div>
     </main>
   );
