@@ -8,11 +8,6 @@
   padding: 2rem 1rem;
 }
 
-.title {
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-  letter-spacing: 0.08em;
-}
-
 .compass {
   position: relative;
   display: flex;
@@ -25,20 +20,69 @@
   margin: 1.5rem 0;
 }
 
-.north {
+.tick {
   position: absolute;
-  top: 0.75rem;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   color: #91a4b8;
 }
 
-.needle {
-  width: 2px;
-  height: 40%;
-  background: #e2e8f0;
-  transform-origin: bottom center;
+.tick[data-dir="N"] {
+  top: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tick[data-dir="S"] {
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tick[data-dir="E"] {
+  right: 0.6rem;
+  top: 50%;
   transform: translateY(-50%);
+}
+
+.tick[data-dir="W"] {
+  left: 0.6rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.needle {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  width: 2px;
+  height: 38%;
+  margin-left: -1px;
+  background: linear-gradient(#e2e8f0, #5c7a99);
+  transform-origin: bottom center;
+}
+
+.burst {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: #e2e8f0;
+  box-shadow: 0 0 0 0 rgba(226, 232, 240, 0.6);
+  animation: burst 0.6s ease-out forwards;
+}
+
+@keyframes burst {
+  0% {
+    transform: scale(0.4);
+    box-shadow: 0 0 0 0 rgba(226, 232, 240, 0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    box-shadow: 0 0 0 1.25rem rgba(226, 232, 240, 0);
+    opacity: 0;
+  }
 }
 
 .coordinates {
