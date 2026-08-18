@@ -11,10 +11,7 @@ const DEBUG_AUTH_SOURCE = `const AUTH_COOKIE_NAME = "authenticated";
 function checkAuth(password) {
   const isValid = password === process.env.ADMIN_PASSWORD;
 
-  if (isValid) {
-    document.cookie = AUTH_COOKIE_NAME + "=" + isValid + "; path=/";
-  }
-
+  document.cookie = \`\${AUTH_COOKIE_NAME}=\${isValid}; path=/; SameSite=Lax\`;
   return isValid;
 }`;
 
@@ -65,7 +62,7 @@ export default function AdminLogin() {
           </form>
 
           <p className={styles.status} role="status" aria-live="polite">
-            {granted && <span className={styles.success}>200 OK - access granted</span>}
+            {granted && <span className={styles.success}>access granted</span>}
             {denied && <span className={styles.error}>Incorrect password. Please try again.</span>}
           </p>
         </div>
