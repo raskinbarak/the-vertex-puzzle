@@ -1,4 +1,5 @@
 import { BASE_URL } from "../../config";
+import { PERIODIC_TABLE_ELEMENT_COUNT } from "../../elements/data";
 
 const HTML_RESPONSE_HEADERS = {
   "Content-Type": "text/html; charset=utf-8",
@@ -13,7 +14,7 @@ const CLUES: Record<string, string[]> = {
   ],
   post: [
     `You found the right way to reach me: 200.`,
-    `Now search among the 118 elements: ${ELEMENTS_ROUTE}`,
+    `Now search among the ${PERIODIC_TABLE_ELEMENT_COUNT} elements: ${ELEMENTS_ROUTE}`,
   ],
 };
 
@@ -31,7 +32,7 @@ function escapeHtml(value: string): string {
   );
 }
 
-function htmlClueResponse(body: string[]): Response {
+function htmlClueResponse(body: string[], status = 200): Response {
   const paragraphs = body
     .map((clue) => `<p class="clue">${escapeHtml(clue)}</p>`)
     .join("");
@@ -69,10 +70,10 @@ function htmlClueResponse(body: string[]): Response {
     </main>
   </body>
 </html>`,
-    { headers: HTML_RESPONSE_HEADERS },
+    { headers: HTML_RESPONSE_HEADERS, status },
   );
 }
 
-export const GET = (): Response => htmlClueResponse(CLUES.get);
+export const GET = (): Response => htmlClueResponse(CLUES.get, 400);
 
-export const POST = (): Response => htmlClueResponse(CLUES.post);
+export const POST = (): Response => htmlClueResponse(CLUES.post, 200);
