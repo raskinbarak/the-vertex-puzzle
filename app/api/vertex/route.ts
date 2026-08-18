@@ -12,8 +12,8 @@ const CLUES: Record<string, string[]> = {
     `Hint: Have some REST and do not make a story out of it (nor upload a real).`,
   ],
   post: [
-    `You found the right way to reach me.`,
-    `The next clue is hidden among the elements: ${ELEMENTS_ROUTE}`,
+    `You found the right way to reach me: 200.`,
+    `Now search among the 118 elements: ${ELEMENTS_ROUTE}`,
   ],
 };
 
