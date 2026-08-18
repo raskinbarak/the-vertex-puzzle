@@ -34,11 +34,9 @@ export default function AdminLogin() {
 
     const authenticated = isAuthenticated();
     console.log(`[debug] auth check\n${DEBUG_AUTH_SOURCE}`);
-    console.log(
-      authenticated
-        ? '[debug] cookie "authenticated" found - access granted'
-        : '[debug] cookie "authenticated" not found - access denied',
-    );
+    if (authenticated) {
+      console.log('[debug] cookie "authenticated" found - access granted');
+    }
 
     setGranted(authenticated);
     setDenied(!authenticated);
