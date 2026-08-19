@@ -13,8 +13,8 @@ const CLUES: Record<string, string[]> = {
     `Hint: Have some REST and do not make a story out of it (nor upload a real).`,
   ],
   post: [
-    `200 ways to reach me - and you found the right one!`,
-    `Now search among the ${PERIODIC_TABLE_ELEMENT_COUNT} elements: ${ELEMENTS_ROUTE}`,
+    `Your POST gets a like!`,
+    `Find the 200 among the ${PERIODIC_TABLE_ELEMENT_COUNT} elements: ${ELEMENTS_ROUTE}`,
   ],
 };
 
