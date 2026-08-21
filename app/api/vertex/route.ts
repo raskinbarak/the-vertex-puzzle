@@ -10,7 +10,7 @@ const ELEMENTS_ROUTE = `${BASE_URL}/elements`;
 const CLUES: Record<string, string[]> = {
   get: [
     `Problem: You tried to GET me and it did not work.`,
-    `Hint: Have some REST and do not make a story out of it (nor upload a real).`,
+    `Hint: Have some REST and do not make a story out of it (nor upload a reel).`,
   ],
   post: [
     `Your POST gets a like!`,
